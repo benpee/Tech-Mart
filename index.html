@@ -1,15 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECH MART</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
-</head>
-<body>
-    <h1>Welcome to TECH MART</h1>
-    <h3>We guarantee you best price and quality products!!!</h3>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script defer src='index.js'></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="header">
+        <img
+          class="header__logo"
+          src="img/Tech Mart Logo.png"
+          alt="Tech Mart Logo"/>
+
+
+        <form action="" class="search">
+          
+            <input class="search__input" type="search" placeholder="search here" />
+
+            <span class="material-icons search-icon">search </span>
+          
+        </form>
+
+        <i class="material-icons shopcart">shopping_cart</i>
+
+        <ul class="right-nav">
+          <button class="homeBtn"><li>Home</li></button>
+          <button class="phonesBtn"><li>Phones</li></button>
+          <button class="laptopsBtn"><li>Laptops</li></button>
+          <button class="accessoriesBtn"><li>Accessories</li></button>
+          <button class="acct-profile"><span class="material-icons">account_circle</span></button>
+          <button class="shopping-cart"><i class="material-icons cart">shopping_cart</i></button>
+        </ul>
+
+
+        <!-----------------------NAVIGATION BAR STARTS HERE------------------------>
+
+
+        <nav role="navigation">
+          <div id="menuToggle">
+            <!--
+              A fake / hidden checkbox is used as click reciever,
+              so you can use the :checked selector on it.
+              -->
+            <input type="checkbox" />
+
+            <!--
+              Some spans to act as a hamburger.
+              
+              They are acting like a real hamburger,
+              not that McDonalds stuff.
+              -->
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <!--
+              Too bad the menu has to be inside of the button
+              but hey, it's pure CSS magic.
+              -->
+            <ul id="menu">
+              <a href="#"><li class="homeBtn1">Home</li></a>
+              <a href="#"><li class="phonesBtn1">Phones</li></a>
+              <a href="#"><li class="laptopsBtn1">Laptops</li></a>
+              <a href="#"><li class="accessoriesBtn1">Accessories</a>
+              <a class="profile" href="#"><li class="profile acct-profile"><span class="material-icons">account_circle</span>Profile</li></a
+              >
+            </ul>
+          </div>
+          
+        </nav>
+      </div>
+    </header>
+
+
+
+
+      <section class="slider-banner">
+
+        
+        <img class="slider-banner__banner1 slide" src="img/iphone.jpeg" alt="laptop image">
+        <img class="slider-banner__banner2 slide" src="img/laptop.jpeg" alt="iphone image">
+        <img class="slider-banner__banner3 slide" src="img/headset.jpeg" alt="headset image">
+
+
+        <div class="text-area">
+          <h1 class="text-area__h1-text">Best Quality Gadgets</h1>
+          <p class="text-area__p-text">We provide the best electronics at the cheapest possible price. Any trending and hightech device, we have</p>
+
+          <button class="text-area__button">shop now</button>
+        </div>
+
+        
+      <i id="arrow-left"><img src="img/arrow_back_ios.png" alt=""></i>
+      <i id="arrow-right"><img src="img/arrow_forward_ios.png" alt=""></i>
+        
+
+      </section>
+
+
+      <!----- BELOW IS THE SECTION FOR PRODUCTS---------------------->
+
+
+
+      <section class="products-section">
+
+        <h1 class="text">Our Products</h1>
+
+        <ul class="categories">
+          <li class="list">All products</li>
+          <li class="list">Laptops</li>
+          <li class="list">Phones</li>
+          <li class="list">Accessories</li>
+        </ul>
+
+        
+
+        <div class="product-items">
+
+
+
+          <div class="all-products"> 
+
+            <h1 class="h1-text">Explore an incredible list of quality items just for you</h1>
+
+            <div class="all-container">
+
+
+              <div class="all">
+                <div class="item-box"><img src="img/iphone.jpeg" data-src="img/iphone.jpeg" class="lazy-img" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 250,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="all">
+                <div class="item-box"><img src="img/laptop.jpeg" data-src="img/laptop.jpeg" class="lazy-img" alt=""></div>
+                <h2 class="product-name">MacBook ghugjh hgj 2015</h2>
+                <h2 class="product-price">&#8358 350,000</h2>
+                <button class="button">Add to cart</button>
+                
+              </div>
+
+
+              <div class="all">
+                <div class="item-box"><img src="img/headset.jpeg" data-src="img/headset.jpeg" class="lazy-img" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="all">
+                <div class="item-box"><img src="img/iphone.jpeg" data-src="img/iphone.jpeg" class="lazy-img" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="all">
+                <div class="item-box">
+                <img src="img/laptop.jpeg" data-src="img/laptop.jpeg" alt="">
+                </div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="all">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="all">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="all">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <button class="button-see-more">See More</button>
+             
+            </div>
+
+ 
+          </div>
+
+
+<!----- THIS IS THE SECTION WHERE Laptop Products STARTS ---------------------->
+
+
+          <div class="laptops-products"> 
+
+            <h1 class="h1-text">Laptops</h1>
+
+            <div class="laptop-container">
+
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/iphone.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 250,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook ghugjh hgj 2015</h2>
+                <h2 class="product-price">&#8358 350,000</h2>
+                <button class="button">Add to cart</button>
+                
+              </div>
+
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/iphone.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="laptops">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <button class="button-see-more">See More</button>
+             
+            </div>
+
+ 
+          </div>
+
+
+
+<!----- THIS IS THE SECTION WHERE Phones Products STARTS ---------------------->
+
+
+
+          <div class="phones-products"> 
+
+            <h1 class="h1-text">phones</h1>
+
+            <div class="phones-container">
+
+
+              <div class="phones">
+                <div class="item-box"><img src="img/iphone.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 250,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="phones">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook ghugjh hgj 2015</h2>
+                <h2 class="product-price">&#8358 350,000</h2>
+                <button class="button">Add to cart</button>
+                
+              </div>
+
+
+              <div class="phones">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="phones">
+                <div class="item-box"><img src="img/iphone.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="phones">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="phones">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="phones">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="phones">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <button class="button-see-more">See More</button>
+             
+            </div>
+
+ 
+          </div>
+
+
+
+<!----- THIS IS THE SECTION WHERE Accessories Products STARTS ---------------------->
+
+          <div class="accessories-products"> 
+
+            <h1 class="h1-text">Accessories</h1>
+
+            <div class="accessories-container">
+
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/iphone.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 250,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook ghugjh hgj 2015</h2>
+                <h2 class="product-price">&#8358 350,000</h2>
+                <button class="button">Add to cart</button>
+                
+              </div>
+
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/iphone.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/laptop.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+
+              <div class="accessories">
+                <div class="item-box"><img src="img/headset.jpeg" alt=""></div>
+                <h2 class="product-name">MacBook 2015</h2>
+                <h2 class="product-price">&#8358 150,000</h2>
+                <button class="button">Add to cart</button>
+              </div>
+
+              <button class="button-see-more">See More</button>
+             
+            </div>
+
+ 
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <section class="mode-of-payment">
+
+      <div class="image-flexed">
+          <div class="image"><img src="img/bank transfer11.png" data-src="img/bank transfer11.png" class="lazy-img" alt="bank transfer image"></div>
+          <div class="image"><img src="img/cash delivery11.jpg" data-src="img/cash delivery11.jpg" class="lazy-img" alt="cash delivery image"></div>
+      </div>
+
+      <div class="image-flexed">
+        <div class="image"> <img src="img/visacard11.png" data-src="img/visacard11.png" class="lazy-img" alt="visacard image"></div>
+        <div class="image"> <img src="img/mastercard11.jpg" data-src="img/mastercard11.jpg" class="lazy-img" alt="master card image"></div>
+      </div>
+
+      
+
+
+      </section>
+
+      <!-- <section>
+
+        <div>
+          <form class="register">
+            <input type="text" class="new-user" />
+            <input type="password" class="new-password" />
+            <input type="email" class="email" />
+            <input type="tel" class="phone-number">
+            <button class="registerBtn">REGISTER</button>
+          </form>
+        </div>
+      </section> -->
+
+      <div class="login hidden"> -->
+        <p class="sign">Sign In</p>
+        <div class="input">
+            <form>
+                <div class="form-control">
+                  <input type="text" name="Email" placeholder="Email" required="required" class=" holder login-mail">
+                <small>Error messsage</small>
+                </div>
+                            
+                <div class="form-control">
+                  <input type="password" name="password" placeholder="Password" required="required" class="holder login-pass">
+                <small>Error message</small> 
+                </div>
+
+                <div class="error-message">
+                        <p> <i> Incorrect Username </i></p>
+                </div> 
+
+                <button class="signing">Sign In</button>
+
+            </form>
+
+        </div>
+            
+          <div class="word">
+              <p> <i><a href="#">Forgot Password?</a> </i></p>
+          </div>
+            
+          <div class="account">
+              <p> <i>Don't have an account yet?  <a href="#">Register Now</a> </i></p>
+          </div>
+        
+    </div>
+
+    <div class="sign-up hidden">
+      <p class="up">Sign Up</p>
+      <div class="email">
+          <form>
+
+              <div class="form-control">
+              <input type="text" name="name" placeholder="Name" required="required" class="holder new-user">
+              <small> Error Message</div>
+              </div>
+
+              <div class="form-control">
+                <input type="text" name="email" placeholder="Email" required="required" class="holder user-mail">
+              <small> Error Message</div>
+              </div>
+
+              <div class="form-control">
+                <input type="tel" name="phonenumber" placeholder="Phone Number" required="required" class="holder phone-number">
+              <small> Error Message</div>
+              </div>
+
+              <div class="form-control">
+                <input type="password" name="password" placeholder="Confirm password" required="required" class="holder2 password2">
+              <small> Error Message</div> 
+              </div>
+
+              <div class="form-control">
+                <input type="password" name="password" placeholder="Password" required="required" class="holder2 new-password"> 
+              <small> Error Message</div>
+              </div>
+
+              <div class="error-message2">
+                  <p> <i> Incorrect Username </i></p>
+              </div>
+                  
+              <button class="register">Register</button>
+              
+          </form>
+
+          
+      </div>
+
+          
+          
+          <div class="word">
+              <p> <i><a href="#">Forgot Password?</a> </i></p>
+          </div>
+          
+          <!-- <div class="container">
+            <div class="header">
+                <h2>Create Account</h2>
+            </div>
+        </div>
+        <div class="register">
+           <form id="form" class="form">
+                <div class="form-control">
+                    <label for="">Username</label>
+                    <input type="text" id="username">
+                    <i class="fas-fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error mesage</small>
+                </div>
+                <div class="form-control">
+                    <label for="">Email</label>
+                    <input type="text" id="email">
+                    <i class="fas-fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error mesage</small>
+                </div>
+                <div class="form-control">
+                    <label for="">Password</label>
+                    <input type="text" id="password">
+                    <i class="fas-fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error mesage</small>
+                </div>
+                <div class="form-control">
+                    <label for="">Password Check</label>
+                    <input type="text" id="password">
+                    <i class="fas-fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error mesage</small>
+                </div>
+            <button class="submit">Register</button>
+           </form>
+        </div> -->
+
+          <div class="user">
+              <p> <i>Already a user?  <a href="#">Sign in here</a> </i></p>
+          </div>
+          
+      
+  </div> -->
+
+      <div class="footer">
+        <div class="footer-link">
+            <ul>
+                <li><a href="" class="footer-item">Services</a></li>
+                <li><a href="" class="footer-item">Terms and Conditions</a></li>
+                <li><a href="" class="footer-item">Privacy Policy</a></li>
+                <li><a href="" class="footer-item">Contact </a></li>
+                <li><a href="" class="footer-item">About</a></li>
+            </ul>
+        </div>
+            
+            
+        
+        <div class="copyrights">
+            <p>&copy; 2021 Tech Mart | All Rights Reserved.</p> 
+        </div>
+                              
+      </div>
+
+
+  </body>
 </html>
