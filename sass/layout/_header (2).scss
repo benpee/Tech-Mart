@@ -1,0 +1,449 @@
+.header{
+  
+    display: flex;
+    height: 10vh;
+    background:var(--color-grey) ;
+    align-items: center;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // z-index: 111;
+
+
+
+    @media screen and (min-width: 769px) {
+      justify-content: space-between;
+    }
+
+    @media screen and (min-width: 1281px) {
+      height: 25vh;
+      
+    }
+
+    // @media screen and (min-width: 1024px) {
+    //   height: 7vh ;
+    // }
+    
+    
+
+    &__logo{
+        height: 7vh;
+
+
+        @media screen and (min-width: 755px) {
+          height: 8vh;
+        }
+
+        @media screen and (min-width: 1024px) {
+          height: 6vh;
+        }
+
+        @media screen and (min-width: 1281px) {
+          height: 15vh;
+          
+        }
+        
+    }
+
+   
+    
+    .search{
+        display: flex;
+        // border: .2rem grey solid;
+        border-radius: .5rem;
+        width: 50%;
+        height: 40%;
+        background: white;
+        align-items: center;
+
+        @media screen and (max-width: 280px) {
+          width: 40%;
+        }
+
+        @media screen and (min-width: 540px) {
+          width: 65%;
+        }
+
+
+        @media screen and (min-width: 755px) {
+          width: 70%;
+        //   height: 5vh;
+        }
+        @media screen and (min-width: 769px) {
+          width: 28%;
+          height: 25%;
+        }
+
+        @media screen and (min-width: 1024px) {
+          width: 30%;
+          height: 30%;
+          
+        }
+
+        @media screen and (min-width: 1281px) {
+          height: 30%;
+          
+        }
+
+        
+
+
+
+
+        &__input{
+            border: none;
+            border-radius: .5rem;
+            width: 80%; 
+            height: 100%; 
+            padding-left: .5rem; 
+            color: black;
+            outline:none;
+
+            @media screen and (min-width: 540px) {
+              width: 90%;
+            }
+
+            @media screen and (min-width: 1024px) {
+              font-size: 2rem;
+            
+            }
+
+            @media screen and (min-width: 1281px) {
+              padding-left: 2rem; 
+
+              
+            }
+        }
+
+        .material-icons{
+          cursor: pointer;
+
+          @media screen and (min-width: 768px) {
+
+          
+          }
+
+        }
+
+    }
+
+    .shopcart{
+        font-size: 3rem;
+        color:#00a859; 
+        margin-left: 1rem; 
+        cursor: pointer;
+
+        @media screen and (min-width: 769px) {
+          display: none;
+        }
+        
+        
+    }
+
+
+
+
+    /////////////////////////////////////nav for bigger screens
+    .right-nav{
+      // border: 1px solid pink;
+      display:flex;
+      list-style: none;
+      align-items: center;
+      width: 46%;
+      justify-content: space-between;
+      margin-left: 1rem;
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+
+      @media screen and (min-width: 1024px) {
+        justify-content: space-around;
+        width: 60%;
+      }
+
+
+
+      li{
+        color:var(--color-green);
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+        // margin-right: 1rem;
+
+        @media screen and (min-width: 1024px) {
+          font-size: 2.5rem;
+        }
+        @media screen and (min-width: 1281px) {
+          // font-size: 2.5rem;
+          padding: .8rem 0;
+        }
+        
+      }
+
+      li:hover{
+        color:var(--color-orange);
+      }
+
+
+      
+
+
+      .material-icons{
+        margin-top: .4rem;
+        // margin-right: 1rem;
+        font-size: 2rem;
+        cursor: pointer;
+        
+
+        @media screen and (min-width: 1024px) {
+          font-size: 3rem;
+        }
+
+      }
+
+      .material-icons:hover{
+        color: grey;
+      }
+
+      .cart{
+        font-size: 1.8rem;
+        color:var(--color-green);
+        cursor: pointer;
+
+        @media screen and (min-width: 1024px) {
+          font-size: 3rem;
+        }
+
+
+      }
+
+      .cart:hover{
+        color:var(--color-orange);
+
+      }
+
+
+
+    }
+
+
+
+
+
+
+
+
+/////////////////////////////////nav starts for mobile
+
+a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color:var(--color-orange);
+}
+
+#menuToggle
+{
+  display: block;
+  position: absolute;
+  top: 4%;
+  right: 1rem;
+  cursor: pointer;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+
+  @media screen and (min-width: 280px) and (max-width:360px) {
+    top: 3.5%;
+  }
+  @media screen and (min-width: 760px) {
+    top:4%;
+  }
+
+  @media screen and (min-width: 769px) {
+    display: none; 
+  }
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 4rem;
+  height: 3.2rem;
+  position: absolute;
+  top: -.7rem;
+  left: -.5rem;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 3.3rem;
+  height: .4rem;
+  margin-bottom: .5rem;
+  position: relative;
+  
+  background: #d86767;
+  border-radius: .3rem;
+  
+  z-index: 1;
+  
+  transform-origin: .4rem 0;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+    
+
+}
+
+
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 100vw;
+  height: 50rem;
+  margin: -7rem 0 0 0;
+  padding: 5rem;
+  padding-top: 12.5rem;
+  right: -1rem;
+  top: 1rem;
+
+
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+
+  .profile{
+    display: flex;
+  }
+}
+
+#menu li
+{
+  padding: 1rem 0;
+  font-size: 2.2rem;
+
+  .material-icons{
+    display: inline;
+    background: none;
+    font-size: 4rem;
+    margin-right: 1rem;
+  }
+}
+
+/*
+ * And let's fade it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  #menu {
+    transform: none;
+    opacity: 0;
+
+    transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+}
+}
+
+
+// .header2{
+//     @mixin display-center {
+//         display: inline-flex;
+//         align-items: center;
+//         position: absolute;
+//         border-radius: 3.125rem;
+//         height: 2.5rem;
+        
+//     }
+//     @include display-center;
+//     background-color: #f1f2f6;
+//     padding: 0.9375rem;
+//     top:0.625rem;
+//     left:4.375rem;
+//     width: 14.75rem;
+//     }
+
+// .header2 input {
+//         outline: none;
+//         border: none;
+//         background: transparent;
+//         padding: 0;   
+//     }

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Mart | Home</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/checkout-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="header">
+        <img
+          class="header__logo"
+          src="img/Tech Mart Logo.png"
+          alt="Tech Mart Logo"/>
+
+
+        <form action="" class="search">
+          
+            <input class="search__input" type="search" placeholder="search here" />
+
+            <span class="material-icons">search </span>
+          
+        </form>
+
+        <i class="material-icons shopcart">shopping_cart</i>
+        
+        <!-----------------------NAVIGATION BAR STARTS HERE------------------------>
+
+        
+        <ul class="right-nav">
+          <li>Home</li>
+          <li>Phones</li>
+          <li>Laptops</li>
+          <li>Accessories</li>
+          <span class="material-icons">account_circle</span>
+          <i class="material-icons cart">shopping_cart</i>
+        </ul>
+
+
+
+
+        <nav role="navigation">
+          <div id="menuToggle">
+            <!--
+              A fake / hidden checkbox is used as click reciever,
+              so you can use the :checked selector on it.
+              -->
+            <input type="checkbox" />
+
+            <!--
+              Some spans to act as a hamburger.
+              
+              They are acting like a real hamburger,
+              not that McDonalds stuff.
+              -->
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <!--
+              Too bad the menu has to be inside of the button
+              but hey, it's pure CSS magic.
+              -->
+            <ul id="menu">
+              <a href="#"><li>Home</li></a>
+              <a href="#"><li>Phones</li></a>
+              <a href="#"><li>Laptops</li></a>
+              <a href="#"><li>Accessories</a>
+              <a class="profile" href=""><li class="profile"><span class="material-icons">account_circle</span>Profile</li></a
+              >
+            </ul>
+          </div>
+          
+        </nav>
+      </div>
+    </header>
+
+
+
+    
+    <div class="white-space"></div>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-12 col">
+                <div class="info-bar">
+                    <p>
+                        <i class="fa fa-info"></i> 
+                        Have a coupon? Enter your code below</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col coupon">
+                <form method="get">
+                    <input type="text" name="coupon" id="coupon" placeholder="Coupon code">
+                    <input type="submit" name="submit" value="Apply Coupon">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <form>
+                <div class="col-7 col">
+                    <h3 class="topborder"><span>Billing Details</span></h3>
+                    
+                    
+                    <label for="fname">Full Name</label>
+                    <input type="text" name="name" id="fname" required>
+                                       
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" required>
+                    
+                    <label for="city">Town / City</label>
+                    <input type="text" name="city" id="city" required>
+                    
+                    
+                    <div class="width50 padright">
+                        <label for="email">Email Address</label>
+                        <input type="text" name="email" id="email" required>
+                    </div>
+                    <div class="width50">
+                        <label for="tel">Phone</label>
+                        <input type="text" name="tel" id="phone-number" required>
+                    </div>
+                    
+                </div>
+                <div class="col-5 col order">
+                    <h3 class="topborder"><span>Your Order</span></h3>
+                    <div class="row">
+                        <h4 class="inline">Product</h4>
+                        <h4 class="inline alignright">Total</h4>
+                    </div>
+                    <div>
+                        <p class="prod-description inline">MacBook 2020 x 2</p>
+                    </div>
+                    <div><h5>Order Total <span id="overall-total"></span> </h5></div>
+
+                    <div>
+                        <h3 class="topborder"><span>Payment Method</span></h3>
+                        
+                    </div>
+
+                    <div>
+                    <div>
+                        <input type="radio" value="paypal" name="payment" checked="checked"><h5>Flutterwave</h5>
+                        <fieldset class="paymenttypes">
+                            <!-- <legend><img src="images/pay-pal.jpg" alt="PayPal Logo" class="paypal"></legend>
+                            <img src="images/cards.jpg" alt="Visa, Mastercard, Maestro and Amex Credit Cards" class="cards"> -->
+                        </fieldset>
+                        
+                    <input type="submit" name="submit" value="Place Order" id="checkout-btn">
+                </div>
+            </form>
+        </div>
+    </div>
+
+  <script src="../B-Worksheet/app.js"></script>
+  </body>
+</html>
