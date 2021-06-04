@@ -156,7 +156,7 @@ const loadImg = function (entries, observer) {
 const imgObserver = new IntersectionObserver(loadImg, {
     root: null,
     threshold: 0,
-    rootMargin: '-250px'
+    rootMargin: '200px'
 });
 
 imgTargets.forEach(img => imgObserver.observe(img));
@@ -200,7 +200,7 @@ const signIn = async function (e) {
     const passWord = password.value;
 
     if (email === '' && password === '') return;
-    // if (isEmail(email)) console.log('Email not valid!');
+    if (isEmail(email)) console.log('Email not valid!');
 
     if (typeof passWord !== 'string' || typeof passWord !== 'number'
         || passWord === '' || passWord.length < 8) console.log('Password not valid!')
@@ -255,7 +255,7 @@ const signUp = async function (e) {
     if (typeof password !== 'string' || typeof password !== 'number'
         || password === '' || password.length < 8) errorMessage('Input not valid!');
 
-    // if (!isEmail(email)) errorMessage('Email is not valid!');
+    if (!isEmail(email)) errorMessage('Email is not valid!');
 
     if (typeof phone !== 'number' || phone === ''
         || phone.length < 10) errorMessage('Input not valid!');
