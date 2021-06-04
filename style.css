@@ -1,0 +1,395 @@
+body {
+    margin: 0;
+    padding: 0;
+       
+         
+ }
+
+ .footer {
+     background-color: #463f3f;
+     /* margin: 0;
+     padding: 0; */
+
+ }
+
+ /* .footer-link {
+     display: flex;
+ } */
+
+ .footer-link {
+     display: flex;
+     justify-content: space-between;
+     text-align: center;
+     margin-left: 20vw;
+     /* border: 1px solid black; */
+ }
+
+ li {
+     list-style: none;
+     display: inline;
+     text-align: center;
+     /* width: 300px;
+     height: 70px;
+     margin: auto; */
+     font-size: 12px;
+ }
+
+ .footer-item  {
+     text-align: center;
+     text-decoration: none;
+     padding: 0px 15px;
+     font-size: 18px;
+     color: #fff;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     /* border-right: 1px solid #333333; */
+ }   
+
+ .footer-item:hover {
+     background: rgba(255, 68, 0, 0.89);
+ }
+
+   
+    .copyrights {
+           /* padding: 1px; */
+           text-align: center;
+           font-size: 18px;
+           color: #fff;
+           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+body {
+    margin: 0;
+    padding: 0;
+}    
+
+.login {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    opacity: 99%;
+    max-width: 300px;
+    margin: 200px auto 100px;
+    padding: 10px 45px 30px 45px;
+    text-align: center;
+    box-shadow: 0 0 5px  ;
+    border-radius: 10px;
+}    
+
+.sign {
+    font-size: 25px;
+    padding: 1px;
+    text-align: center;
+    color: black;
+    
+}
+
+.input {
+    outline: 0;
+    border-radius: 10px;
+    width: 100%;
+    border: 0;
+    margin: 30px 0;
+    padding: 0 5px;
+    /* height: 40px; */
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    
+    
+}
+.holder{
+    height: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* .input2 {
+    outline: 0;
+    border-radius: 10px;
+    width: 100%;
+    border: 0;
+    margin: 30px 0;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    
+
+} */
+
+
+/* button{
+    display: block;
+} */
+
+.error-message {
+    text-align: center;
+    color: red;
+    visibility: hidden; 
+}
+
+.signing {
+    background-color: #00a859;
+    color: white;
+    text-align: center;
+    top: 15px;
+    width: 50%;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+
+}
+
+
+/* .word {
+    color: #00a859;
+    
+} */
+
+.word a {
+    text-decoration: none;
+    color: #00a859;
+    font-size: 18px;
+    
+}
+
+.account {
+    margin: 30px 0;
+}
+
+.account a {
+    color: #00a859;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+.sign-up {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    opacity: 99%;
+    max-width: 300px;
+    margin: 200px auto 100px;
+    padding: 10px 45px 30px 45px;
+    text-align: center;
+    box-shadow: 0 0 5px ;
+    border-radius: 10px;
+    
+}    
+
+.up {
+    font-size: 25px;
+    padding: 1px;
+    text-align: center;
+    color: black;
+    
+}
+
+.email {
+    outline: 0;
+    border-radius: 10px;
+    width: 100%;
+    border: 0;
+    margin: 30px 0;
+    padding: 0 5px;
+    /* height: 40px; */
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    
+    
+}
+.holder2{
+    height: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.error-message2 {
+    text-align: center;
+    color: red;
+    visibility: hidden; 
+}
+
+
+
+.register {
+    background-color: #00a859;
+    color: white;
+    text-align: center;
+    top: 15px;
+    width: 50%;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+
+
+.user {
+    margin: 30px 0;
+}
+
+.user a {
+    color: #00a859;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* -----------Profile Page------------- */
+
+
+
+.container {
+    padding: 0 20px;
+    border: solid;
+    width: 70%;
+    margin: auto;
+    /* display: flex; */
+    /* box-shadow: 0 0 5px 2px; */
+    
+}
+
+.sub-container {
+    
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding-bottom: 20px;
+    
+}
+
+
+/* Left div */
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.dp {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    overflow: hidden;
+    background: url('../../img/woman-2150881_1280.jpg') no-repeat;
+    background-size: cover;
+    background-position:center;
+    margin: auto;
+       
+}
+
+.mart {
+    letter-spacing: 2px;
+    font-size: 15px; 
+    text-align: center;
+    justify-content: center;
+    line-height: 10px;
+    
+}
+
+.mart #mail {
+    font-style: italic;
+}
+
+
+/* Right Div */
+
+input {
+    height: 50px;
+}
+
+.sub-container .login-form {
+    width: 280px;
+    height: 100%;
+    text-align: center;
+    padding: 50px 40px 0;
+    position: relative;
+    left: 180px;
+   
+}
+
+.title {
+    text-align: center;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 800px;
+    margin-bottom: 23px;
+}
+
+.sub-container .login-form .label {
+    color: #524a4a;
+    font-size: 14px;
+    letter-spacing: 2px;
+   
+}
+
+.input-fields {
+    text-align: left;
+   
+}
+
+.put {
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid grey;
+    margin-bottom: 15px;
+   
+}
+
+   
+.btn-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-btn {
+    background-color: #00a859;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    text-align: center;
+  
+}
+
+.profile-btn:hover {
+    opacity: 0.8;
+}
+
+
+
+@media screen and (min-width: 990px) {
+    .sub-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+}
+
+
+
+
+
+
