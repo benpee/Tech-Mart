@@ -179,9 +179,9 @@ const CheckInput = function (input) {
 }
 // "Content-Type","value":"application/x-www-form-urlencoded"
 
-const isEmail = function (email) {
-    return ('/^(([^<>()\[\]\\.,;:\s@"]+ (\.[^<>()\[\]\\.,;:\s@"]+)*)!(".+")#(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1-3}])!(([a-zA-Z\-0-9]+\.)+[a-za-Z]{2,}))$/'.test(email))
-}
+//const isEmail = function (email) {
+//    return ('/^(([^<>()\[\]\\.,;:\s@"]+ (\.[^<>()\[\]\\.,;:\s@"]+)*)!(".+")#(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1-3}])!(([a-zA-Z\-0-9]+\.)+[a-za-Z]{2,}))$/'.test(email))
+//}
 
 const login = document.querySelector('.login');
 const register = document.querySelector('.sign-up');
@@ -250,17 +250,17 @@ const signUp = async function (e) {
         && email === '' && phone === '') return;
 
     if (typeof username !== 'string' || username === ''
-        || username.length < 8) errorMessage('Input not valid!');
+        || username.length < 8) console.log('Input not valid!');
 
     if (typeof password !== 'string' || typeof password !== 'number'
-        || password === '' || password.length < 8) errorMessage('Input not valid!');
+        || password === '' || password.length < 8) console.log('Input not valid!');
 
     // if (!isEmail(email)) errorMessage('Email is not valid!');
 
     if (typeof phone !== 'number' || phone === ''
-        || phone.length < 10) errorMessage('Input not valid!');
+        || phone.length < 10) console.log('Input not valid!');
 
-    if (password2 !== password) errorMessage("Password doesn't match, please try again!");
+    if (password2 !== password) console.log("Password doesn't match, please try again!");
     console.log(accts)
     // CheckInput(username);
     // validMail(email);
