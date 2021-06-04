@@ -183,6 +183,17 @@ const isEmail = function (email) {
     return ('/^(([^<>()\[\]\\.,;:\s@"]+ (\.[^<>()\[\]\\.,;:\s@"]+)*)!(".+")#(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1-3}])!(([a-zA-Z\-0-9]+\.)+[a-za-Z]{2,}))$/'.test(email))
 }
 
+const login = document.querySelector('.login');
+const register = document.querySelector('.sign-up');
+
+const hideForm = function (any) {
+    any.classList.add('hidden');
+}
+
+const showForm = function (any) {
+    any.classList.remove('hidden');
+}
+
 const signIn = async function (e) {
     e.preventDefault();
     const email = username.value;
@@ -191,14 +202,14 @@ const signIn = async function (e) {
     if (email === '' && password === '') return;
     if (isEmail(email)) console.log('Email not valid!');
 
-    // if (typeof passWord !== 'string' || typeof passWord !== 'number'
-    //     || passWord === '' || passWord.length < 8) errorMessage('Password not valid!')
+    if (typeof passWord !== 'string' || typeof passWord !== 'number'
+        || passWord === '' || passWord.length < 8) console.log('Password not valid!')
     // if (currentAcct && currentAcct.password === passWord) {
     //     dashboard.classList.add('currentUser');
     // }
 
-    // if (currentAcct && currentAcct.password === passWord)
-    //     currentAcct.isAdmin ? showAdmin() : showUser();
+    if (currentAcct && currentAcct.password === passWord)
+        currentAcct.isAdmin ? showAdmin() : showUser();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -224,6 +235,7 @@ const signIn = async function (e) {
             console.log('Admin');
         })
         .catch(error => console.log('error', error));
+    hideform(login);
 }
 
 const signUp = async function (e) {
@@ -272,12 +284,16 @@ const signUp = async function (e) {
 
     fetch("https://shopappanter.herokuapp.com/api/users/register", requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {
+            console.log(result);
+            loginBtn.dataset.id = result.id;
+        })
         .catch(error => console.log('error', error));
 
     // renderMessage(`${data.message}!!!`);
     accts = [...accts, { name, email, password, phone }];
     setAccts(accts);
+    hideForm(register);
 }
 
 const getAllUsers = function () {
@@ -301,22 +317,22 @@ const getAllUsers = function () {
         .then(response => response.text())
         .then(result => {
             accts = [accts, result];
-            console.log("result", `Accts - ${accts}`, accts.length);
+            console.log("result", `Accts - ${accts}`,);
         })
         .catch(error => console.log('error', error));
 }
-
+getAllUsers();
 
 loginBtn.addEventListener('click', signIn);
 registerBtn.addEventListener('click', signUp);
 
 const renderMarkup = function (html, parentElement) {
     parentElement.innerHTML = '';
-    parentElement.insertAdjacentHTML('afterbegin', html);
+    return parentElement.insertAdjacentHTML('afterbegin', html);
 }
 
 const renderMarkupOthers = function (html, parentElement) {
-    parentElement.insertAdjacentHTML('afterbegin', html);
+    return parentElement.insertAdjacentHTML('afterbegin', html);
 }
 
 
@@ -327,21 +343,23 @@ const generateMarkupAll = function (data) {
             <h1 class="h1-text">Explore an incredible list of quality items just for you</h1>
 
             <div class="all-container">
-                ${data.map(generateMarkupProduct)}
+                ${data.map(generateMarkupProduct).slice(3)}
                 <button class="button-see-more">See More</button>             
             </div>
           </div>
         `
 }
 const generateMarkupPant = function (data) {
+    const container = document.querySelector('.laptop-container');
+    console.log(container)
+    container.innerHTML = `${data.filter(item => item.category !== 'Pants')
+        .map(generateMarkupProduct).slice(0, 3)}</div>`;
     return `<div class="laptops-products">
 
             <h1 class="h1-text">Explore an incredible list of quality items just for you</h1>
 
             <div class="laptops-container">
-                ${data
-            .filter(item => item.category === 'Pants')
-            .map(generateMarkupProduct)}
+                ${container.innerHTML}
                 <button class="button-see-more">See More</button>             
             </div>
           </div>
@@ -349,27 +367,30 @@ const generateMarkupPant = function (data) {
 }
 
 const generateMarkupShirt = function (data) {
+    const container = document.querySelector('.phones-container');
+    container.innerHTML = `${data.filter(item => item.category !== 'Shirts')
+        .map(generateMarkupProduct).slice(0, 3)}</div>`;
     return `<div class="phones-products">
 
             <h1 class="h1-text">Explore an incredible list of quality items just for you</h1>
 
             <div class="phones-container">
-                ${data.filter(item => item.category === 'Shirts')
-            .map(generateMarkupProduct)}
+                ${container.innerHTML}
                 <button class="button-see-more">See More</button>             
             </div>
-          </div>
+        </div>
         `
 }
 
 const generateMarkupOthers = function (data) {
+    const container = document.querySelector('.accessories-container');
+    container.innerHTML = `${data.filter(item => item.category === 'Shirts')
+        .map(generateMarkupProduct).slice(0, 3)}</div>`
     return `<div class="accessories-products">
 
-            <h1 class="h1-text">Explore an incredible list of quality items just for you</h1>
-
+            <h1 class="h1-text">Explore an incredible list of quality items just for you</h1>                
             <div class="accessories-container">
-                ${data.filter(item => item.category === 'Shirts')
-            .map(generateMarkupProduct)}
+            ${container.innerHTML}
                 <button class="button-see-more">See More</button>             
             </div>
           </div>
@@ -377,13 +398,16 @@ const generateMarkupOthers = function (data) {
 }
 
 const generateMarkupProduct = function (item, i) {
+    item.category = item.category === 'Pants' ? 'laptops' : 'phones';
+    console.log(item.category);
     return `
             <div class="${item.category}">
-                <div class="item-box"><img src="img/p${i}.jpeg" data-src="img/img${i}" class="lazy-img" alt=""></div>
+                <div class="item-box"><img src="img/img${i}.jpeg" data-src="img/img${i}.jpeg" class="lazy-img" alt=""></div>
                     <h2 class="product-name">${item.name}</h2>
                     <h2 class="product-price">${parseInt(item.price).toFixed(2)}</h2>
                     <button class="button" data-id="${item._id}">Add to cart</button>
                 </div>
+            </div>
         `;
 }
 
@@ -391,10 +415,11 @@ const displayProducts = async function () {
     const parentEl = document.querySelector('.product-items');
     const data = await getProducts();
     console.log(data)
-    const html = generateMarkupOthers(data);
+    let html = generateMarkupOthers(data);
     renderMarkup(html, parentEl);
     const html2 = generateMarkupPant(data);
     renderMarkupOthers(html2, parentEl);
+    console.log(renderMarkupOthers(html2, parentEl))
     const html3 = generateMarkupShirt(data);
     renderMarkupOthers(html3, parentEl);
     const html4 = generateMarkupAll(data);
@@ -463,3 +488,262 @@ const getProducts = async function () {
 //     }
 //     this.hideCart();
 // }
+
+const renderHTML = function (html, parentElement) {
+    parentElement.innerHTML = '';
+    parentElement.insertAdjacentHTML('afterbegin', html)
+}
+
+const showAdmin = function () {
+    const main = document.querySelector('main');
+    const html = `
+    <div class="board">
+    <h2>Admin Dashboard</h2>
+</div>
+
+<div class="admin">
+
+    <div class="dashboard">
+
+        <h3>Registered Users</h3>
+    </div>    
+        <div class="pro">
+            <h3>Products</h3>
+        </div>
+        <div class="order">
+            <h3>Orders</h3>
+        </div>
+        <div class="users">
+            <h3>Online Users</h3>
+        </div>
+        
+                       
+
+    
+</div>
+<div class="box">
+    <div class="fluid">
+        <div class="break">
+            <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="bid">
+            <h4>John Doe</h4>
+        </div>
+        <div class="lit">
+            <h4>JohnDoe@email.com</h4>
+        </div>
+    </div>
+
+    <div class="fluid">
+        <div class="break">
+            <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="bid">
+            <h4>Jane Doe</h4>
+        </div>
+        <div class="lit">
+            <h4>JaneDoe@email.com</h4>
+        </div>
+    </div>
+
+    <div class="fluid">
+        <div class="break">
+            <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="bid">
+            <h4>Mc Collough</h4>
+        </div>
+        <div class="lit">
+            <h4>McCollough@email.com</h4>
+        </div>
+    </div>
+
+    <div class="fluid">
+        <div class="break">
+            <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="bid">
+            <h4>Lance Vance</h4>
+        </div>
+        <div class="lit">
+            <h4>LanceVance@email.com</h4>
+        </div>
+    </div>
+
+    <div class="fluid">
+        <div class="break">
+            <i class="fa fa-user-circle-o"></i>
+        </div>
+        <div class="bid">
+            <h4>Dan Brown</h4>
+        </div>
+        <div class="lit">
+            <h4>DanBrown@email.com</h4>
+        </div>
+    </div>
+</div>
+    `;
+    renderHTML(html, main);
+}
+
+const showUser = function () {
+    const main = document.querySelector('main');
+    const html = `
+    <div class="container">
+
+        <h2 class="title"> Profile Settings </h2>
+        
+        <div class="sub-container">
+            <div class="left">
+
+                    <div class="dp">
+                        <!-- <img src="picture.jpeg" width="128" height="85" alt="" class="pic"> -->
+                    </div>                   
+                    
+                    <div class="mart">
+                        <h3 class="tech">Tech Mart</h3>
+                        <p id="mail">user@gmail.com</p>
+                    </div>    
+            </div>
+
+            <div class="right">
+                
+                <div class="input-fields">
+                      <label for="username" class="label">Username</label> 
+                      <input type="text"  class="put"> 
+                </div>
+                <br>
+                <div class="input-fields">
+                    <label class="label">Full Name</label> 
+                      <input type="text" class="put"> 
+                </div>
+                <br>
+                <div class="input-fields">
+                    <label class="label">Address</label> 
+                      <input type="text" class="put"> 
+                </div>
+                <br>
+                
+                <div class="input-fields">
+                    <label class="label">Phone Number</label> 
+                      <input type="password" class="put"> 
+                </div>
+                
+                <div class="btn-profile">
+                    <button class="profile-btn" id="update-btn">Update</button>
+                    <button class="profile-btn" id="logout-btn" >Logout</button> 
+                </div>
+                 
+            </div>
+
+                 
+        </div>
+    </div>
+    `;
+    renderHTML(html, main);
+}
+
+/////////// LOCAL STORAGE ///////////////
+const getAccts = function () {
+    localStorage.getItem('accts');
+}
+
+const setAccts = function (accts) {
+    localStorage.setItem('accts', JSON.stringify(accts));
+}
+const getCarts = function () {
+    localStorage.getItem('carts');
+}
+const setCarts = function (carts) {
+    localStorage.getItem('carts', JSON.stringify(cart));
+}
+
+/////////// Checked if logged in
+const isLoggedIn = function (e) {
+    const id = loginBtn.dataset.id;
+    const currentAcct = accts.find(acct => acct.id === id);
+    if (!!id) showForm('login');
+    if (id) {
+        !!currentAcct.isAdmin ? showAdmin() : showUser();
+    }
+}
+
+acctBtn.addEventListener('click', isLoggedIn);
+
+const qtyPlus = document.querySelectorAll('.qty-plus')
+const qtyMinus = document.querySelectorAll('.qty-minus')
+let productQty = document.querySelectorAll('.product-quantity');
+let prdctPrice = document.querySelectorAll('.prdct-price');
+let prdctTotal = document.querySelectorAll('.prdct-total');
+const proceedBtn = document.querySelector('.btn-proceed');
+let cartTotal = document.getElementById('cart-total');
+
+
+
+
+// For Checkout
+
+
+for (let i = 0; i < qtyPlus.length; i++) {
+    qtyMinus[i].addEventListener('click', decreaseBtn)
+    qtyPlus[i].addEventListener('click', increaseBtn)
+    let productQtyNum = +(productQty[i].value);
+    let prdctPriceNum = +(prdctPrice[i].textContent);
+    var prdctTotalNum = Number(prdctTotal[i].textContent);
+
+
+    function increaseBtn() {
+        productQtyNum = productQtyNum + 1;
+        productQty[i].value = productQtyNum;
+        prdctTotal = prdctPriceNum * productQtyNum;
+        prdctTotalNum = prdctTotal.innerText;
+        console.log(prdctTotalNum);
+
+        // Total = 
+    }
+    function decreaseBtn() {
+        if (productQtyNum != 0)
+            productQtyNum = productQtyNum - 1;
+        productQty[i].value = productQtyNum;
+        prdctTotal[i].textContent = prdctPriceNum * productQtyNum;
+    }
+}
+
+
+proceedBtn.addEventListener('click', () => {
+    window.location.href = 'checkout.html';
+})
+
+
+/* ----Checkout---- */
+
+
+const checkoutBtn = document.getElementById('checkout-btn');
+const price = document.getElementById('overall-total');
+const customerName = document.getElementById('name').value;
+const customerEmail = document.getElementById('email').value;
+const customerPhone = document.getElementById('phone-number').value;
+
+checkoutBtn.addEventListener('click', pay)
+
+function pay(e) {
+
+    e.preventDefault();
+
+    FlutterwaveCheckout({
+        public_key: 'FLWPUBK_TEST-7d3f2016cc975585dcbc0db0e222ebf7-X',
+        tx_ref: `Teck Mart ${Math.floor((Math.random() * 100000000) + 1)}`,
+        amount: price,
+        currency: 'NGN',
+        customer: {
+            name: customerName,
+            email: customerEmail,
+            phonenumber: customerPhone
+        },
+        callback: function (data) {
+            console.log(data)
+        }
+    })
+}
+
+
