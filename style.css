@@ -23,6 +23,9 @@ body {
      margin-left: 20vw;
      /* border: 1px solid black; */
  }
+.hidden {
+  display: none;
+}
 
  li {
      list-style: none;
